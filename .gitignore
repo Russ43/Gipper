@@ -1,0 +1,11 @@
+# For more ideas, visit:
+# https://github.com/github/gitignore/blob/master
+# https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
+
+# ignore Visual Studio user-specific files
+*.suo
+*.user
+
+# ignore output directories
+[Oo]bj/
+[Bb]in/
