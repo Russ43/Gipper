@@ -175,6 +175,8 @@
     <Compile Include="Commands\ReplaceInFiles.cs" />
     <Compile Include="Commands\RunSolutionCommand.cs" />
     <Compile Include="Commands\ShowClassificationsCommand.cs" />
+    <Compile Include="Commands\TileFloatingToolWindows\TileFloatingToolWindowsCommand.cs" />
+    <Compile Include="Commands\TileFloatingToolWindows\WindowFrameTiler.cs" />
     <Compile Include="Controls\BadInputControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -200,9 +202,13 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GipperTypes\GipperDropdownBarEntry.cs" />
+    <Compile Include="GipperTypes\GipperWindowFrame.cs" />
     <Compile Include="Helpers\DropdownBarHelper.cs" />
+    <Compile Include="Helpers\Gdi32Helper.cs" />
     <Compile Include="Helpers\PerformanceHelper.cs" />
+    <Compile Include="Helpers\User32Helper.cs" />
     <Compile Include="Helpers\VariableHelper.cs" />
+    <Compile Include="Helpers\WindowHelper.cs" />
     <Compile Include="Managers\ToolWindowManager.cs" />
     <Compile Include="Misc\ThrottledEventHandler.cs" />
     <Compile Include="Package43\GipperCommand.cs" />

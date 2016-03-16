@@ -185,6 +185,14 @@
 			</Strings>
 		</Button>
 
+		<Button guid="guidGipperPackageCmdSet" id="cmdidTileFloatingToolWindows" priority="0x0100" type="Button">
+			<Parent guid="guidSHLMainMenu" id="IDG_VS_WNDO_OTRWNDWS1"/>
+			<Icon guid="guidImages" id="bmpPic2" />
+			<Strings>
+				<ButtonText>Gipper Tile Floating Tool Windows</ButtonText>
+			</Strings>
+		</Button>
+
 	</Buttons>
    
     <!--The bitmaps section is used to define the bitmaps that are used for the commands.-->
@@ -228,6 +236,7 @@
 		<IDSymbol name="cmdidReplaceInFiles" value="0x10E" />
 		<IDSymbol name="cmdidRunSolution" value="0x10F" />
 		<IDSymbol name="cmdidShowClassifications" value="0x110" />
+		<IDSymbol name="cmdidTileFloatingToolWindows" value="0x111" />
 	</GuidSymbol>
     
     

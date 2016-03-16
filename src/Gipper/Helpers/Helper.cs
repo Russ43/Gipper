@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -242,7 +243,24 @@ namespace Gipper
 			
 
 		}
-	
+		
+		static public float GetScreenDpiScalingFactor()
+		{
+			// http://stackoverflow.com/questions/5977445/how-to-get-windows-display-settings
+
+			float screenScalingFactor;
+			using(Graphics g = Graphics.FromHwnd(IntPtr.Zero))
+			{
+				IntPtr desktop = g.GetHdc();
+				int logPixelsY = Gdi32Helper.GetDeviceCaps(desktop, (int) Gdi32Helper.DeviceCap.LOGPIXELSY);
+				g.ReleaseHdc(desktop);
+
+				screenScalingFactor = (float) logPixelsY / (float) 96;
+			}
+
+			return screenScalingFactor; // 1.25 = 125%
+		}
+
 
 		// private methods
 		static private IList<UIHierarchyItem> FindSelectedItems(UIHierarchyItem item)

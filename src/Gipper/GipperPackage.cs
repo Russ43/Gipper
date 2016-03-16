@@ -100,6 +100,7 @@ namespace Gipper
 			AddCommand(PkgCmdIDList.cmdidReplaceInFiles, new ReplaceInFilesCommand());
 			AddCommand(PkgCmdIDList.cmdidRunSolution, new RunSolutionCommand());
 			AddCommand(PkgCmdIDList.cmdidShowClassifications, new ShowClassificationsCommand());
+			AddCommand(PkgCmdIDList.cmdidTileFloatingToolWindows, new TileFloatingToolWindowsCommand());
 
 			// Add our tool windows
 			AddToolWindow(PkgCmdIDList.cmdidGipperOpenFilesToolWindow, typeof(OpenFilesToolWindowPane));

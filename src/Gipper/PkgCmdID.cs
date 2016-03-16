@@ -22,5 +22,6 @@ namespace Gipper
 		public const uint cmdidReplaceInFiles = 0x10E;
 		public const uint cmdidRunSolution = 0x10F;
 		public const uint cmdidShowClassifications = 0x110;
+		public const uint cmdidTileFloatingToolWindows = 0x111;
 	};
 }
