@@ -36,9 +36,12 @@ namespace Gipper
 				return null;
 
 			// BUGBUG: And actually, in Visual Studio 2015, it crashes (also StackOverflowException??) for even plain "CSharp."
-			if(VariableHelper.GetVariable("CLASSIFIER", "DISABLED") == "1")
+			if(Gipper.GipperPackage.Dte.Version == "14.0")
 				return null;
 
+			if(VariableHelper.GetVariable("CLASSIFIER", "DISABLED") == "1")
+				return null;
+			
 			IClassifier classifier = null;
 
 			// TODO: Figure out why this ignore request pattern (from http://ceyhunciper.wordpress.com/category/vs-editor/)
