@@ -183,9 +183,10 @@ namespace Gipper
 
 			if(!_repopulateFromRootBackgroundWorker.CancellationPending)
 			{
+				// HACKHACK: Gipper isn't installing correctly on some Windows 7 machines, so remove perf counters for now.
 				// For now, let's monitor this using PerfCounters. I'm a little worried this is getting called too often and I know
 				// it's too time consuming.
-				PerformanceHelper.IncrementProjectFileManagerRepopulateTimeCounter(stopwatch.Elapsed);
+				//PerformanceHelper.IncrementProjectFileManagerRepopulateTimeCounter(stopwatch.Elapsed);
 			}
 		}
 	}

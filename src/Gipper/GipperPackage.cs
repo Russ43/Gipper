@@ -76,8 +76,9 @@ namespace Gipper
 			Debug.WriteLine (string.Format(CultureInfo.CurrentCulture, "Entering Initialize() of: {0}", this.ToString()));
 			base.Initialize();
 
+			// HACKHACK: Gipper isn't installing correctly on some Windows 7 machines, so remove perf counters for now.
 			// register performance counters
-			PerformanceHelper.CreatePerformanceCounters();
+			//PerformanceHelper.CreatePerformanceCounters();
 
 			// Initialize helper classes
 			EventsHelper.Initialize(Dte);
