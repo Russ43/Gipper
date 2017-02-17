@@ -44,10 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Classifiers\HighlightWordFormatDefinition.cs" />
-    <Compile Include="Classifiers\HighlightWordTag.cs" />
-    <Compile Include="Classifiers\HighlightWordTagger.cs" />
-    <Compile Include="Classifiers\HighlightWordTaggerProvider.cs" />
+    <Compile Include="Classifiers\HighlightWordExample\HighlightWordFormatDefinition.cs" />
+    <Compile Include="Classifiers\HighlightWordExample\HighlightWordTag.cs" />
+    <Compile Include="Classifiers\HighlightWordExample\HighlightWordTagger.cs" />
+    <Compile Include="Classifiers\HighlightWordExample\HighlightWordTaggerProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
