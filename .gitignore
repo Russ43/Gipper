@@ -9,3 +9,6 @@
 # ignore output directories
 [Oo]bj/
 [Bb]in/
+
+#ignore Nuget stuff
+[Pp]ackages/
