@@ -66,6 +66,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Classifiers\HighlightWordExample\README.txt" />
+    <Content Include="Classifiers\SemanticColorizerExample\README.txt" />
     <Content Include="index.html" />
     <Content Include="stylesheet.css" />
   </ItemGroup>
