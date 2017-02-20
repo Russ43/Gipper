@@ -2,6 +2,7 @@
 using System.Windows.Media;
 using Microsoft.VisualStudio.Text.Classification;
 using Microsoft.VisualStudio.Utilities;
+using Gipper._2015.Classifiers.GipperClassifier;
 
 namespace SemanticColorizer
 {
@@ -12,10 +13,12 @@ namespace SemanticColorizer
 	[Order(After = Priority.Default)]
 	internal sealed class SemanticFieldFormat : ClassificationFormatDefinition
 	{
+
 		public SemanticFieldFormat()
 		{
 			DisplayName = "Semantic Field";
-			ForegroundColor = Colors.SaddleBrown;
+			FontTypeface = StyleHelper.DefinitionFontFace;
+			FontRenderingSize = StyleHelper.MemberFontRenderingSize;
 		}
 	}
 
@@ -29,6 +32,8 @@ namespace SemanticColorizer
 		public SemanticEnumFieldFormat()
 		{
 			DisplayName = "Semantic Enum Field";
+			FontTypeface = StyleHelper.DefinitionFontFace;
+			FontRenderingSize = StyleHelper.MemberFontRenderingSize;
 		}
 	}
 
@@ -42,7 +47,8 @@ namespace SemanticColorizer
 		public SemanticExtensionMethodFormat()
 		{
 			DisplayName = "Semantic Extension Method";
-			IsItalic = true;
+			FontTypeface = StyleHelper.DefinitionFontFace;
+			FontRenderingSize = StyleHelper.MemberFontRenderingSize;
 		}
 	}
 
@@ -56,6 +62,8 @@ namespace SemanticColorizer
 		public SemanticStaticMethodFormat()
 		{
 			DisplayName = "Semantic Static Method";
+			FontTypeface = StyleHelper.DefinitionFontFace;
+			FontRenderingSize = StyleHelper.MemberFontRenderingSize;
 		}
 	}
 
@@ -69,6 +77,8 @@ namespace SemanticColorizer
 		public SemanticNormalMethodFormat()
 		{
 			DisplayName = "Semantic Normal Method";
+			FontTypeface = StyleHelper.DefinitionFontFace;
+			FontRenderingSize = StyleHelper.MemberFontRenderingSize;
 		}
 	}
 
@@ -82,6 +92,8 @@ namespace SemanticColorizer
 		public SemanticConstructorFormat()
 		{
 			DisplayName = "Semantic Constructor";
+			FontTypeface = StyleHelper.DefinitionFontFace;
+			FontRenderingSize = StyleHelper.MemberFontRenderingSize;
 		}
 	}
 
@@ -95,7 +107,6 @@ namespace SemanticColorizer
 		public SemanticTypeParameterFormat()
 		{
 			DisplayName = "Semantic Type Parameter";
-			ForegroundColor = Colors.SlateGray;
 		}
 	}
 
@@ -109,7 +120,6 @@ namespace SemanticColorizer
 		public SemanticParameterFormat()
 		{
 			DisplayName = "Semantic Parameter";
-			ForegroundColor = Colors.SlateGray;
 		}
 	}
 
@@ -123,7 +133,8 @@ namespace SemanticColorizer
 		public SemanticNamespaceFormat()
 		{
 			DisplayName = "Semantic Namespace";
-			ForegroundColor = Colors.LimeGreen;
+			FontTypeface = StyleHelper.DefinitionFontFace;
+			FontRenderingSize = StyleHelper.NamespaceFontRenderingSize;
 		}
 	}
 
@@ -137,6 +148,8 @@ namespace SemanticColorizer
 		public SemanticPropertyFormat()
 		{
 			DisplayName = "Semantic Property";
+			FontTypeface = StyleHelper.DefinitionFontFace;
+			FontRenderingSize = StyleHelper.MemberFontRenderingSize;
 		}
 	}
 
@@ -163,6 +176,8 @@ namespace SemanticColorizer
 		public SemanticTypeSpecialFormat()
 		{
 			DisplayName = "Semantic Special Type";
+			FontTypeface = StyleHelper.DefinitionFontFace;
+			FontRenderingSize = StyleHelper.TypeFontRenderingSize;
 		}
 	}
 
@@ -176,6 +191,8 @@ namespace SemanticColorizer
 		public SemanticTypeNormalFormat()
 		{
 			DisplayName = "Semantic Normal Type";
+			FontTypeface = StyleHelper.DefinitionFontFace;
+			FontRenderingSize = StyleHelper.TypeFontRenderingSize;
 		}
 	}
 }
