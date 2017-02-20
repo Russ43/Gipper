@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CSharp = Microsoft.CodeAnalysis.CSharp;
 using VB = Microsoft.CodeAnalysis.VisualBasic;
+using Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefinitions;
 
 namespace SemanticColorizer
 {
@@ -65,7 +66,7 @@ namespace SemanticColorizer
 			_constructorType = registry.GetClassificationType(Constants.ConstructorFormat);
 			_typeParameterType = registry.GetClassificationType(Constants.TypeParameterFormat);
 			_parameterType = registry.GetClassificationType(Constants.ParameterFormat);
-			_namespaceType = registry.GetClassificationType(Constants.NamespaceFormat);
+			_namespaceType = registry.GetClassificationType(NamespaceDefinitionCfd.Name);
 			_propertyType = registry.GetClassificationType(Constants.PropertyFormat);
 			_localType = registry.GetClassificationType(Constants.LocalFormat);
 			_typeSpecialType = registry.GetClassificationType(Constants.TypeSpecialFormat);

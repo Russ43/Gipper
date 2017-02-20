@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Composition;
+using Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefinitions;
 using Microsoft.VisualStudio.Text.Classification;
 using Microsoft.VisualStudio.Utilities;
 
@@ -40,7 +41,7 @@ namespace SemanticColorizer
 		internal static ClassificationTypeDefinition ParameterType;
 
 		[Export(typeof(ClassificationTypeDefinition))]
-		[Name(Constants.NamespaceFormat)]
+		[Name(NamespaceDefinitionCfd.Name)]
 		internal static ClassificationTypeDefinition NamespaceType;
 
 		[Export(typeof(ClassificationTypeDefinition))]

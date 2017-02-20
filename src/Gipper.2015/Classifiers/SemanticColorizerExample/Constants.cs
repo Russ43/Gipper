@@ -12,7 +12,7 @@ namespace SemanticColorizer
 		public const String ConstructorFormat = "s.semantic-colorizer.constructor";
 		public const String TypeParameterFormat = "s.semantic-colorizer.type-parameter";
 		public const String ParameterFormat = "s.semantic-colorizer.parameter";
-		public const String NamespaceFormat = "s.semantic-colorizer.namespace";
+		//public const String NamespaceFormat = "s.semantic-colorizer.namespace";
 		public const String PropertyFormat = "s.semantic-colorizer.property";
 		public const String LocalFormat = "s.semantic-colorizer.local";
 		public const String TypeSpecialFormat = "s.semantic-colorizer.type-special";

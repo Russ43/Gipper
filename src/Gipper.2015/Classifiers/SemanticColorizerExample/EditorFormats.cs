@@ -123,20 +123,20 @@ namespace SemanticColorizer
 		}
 	}
 
-	[Export(typeof(EditorFormatDefinition))]
-	[ClassificationType(ClassificationTypeNames = Constants.NamespaceFormat)]
-	[Name(Constants.NamespaceFormat)]
-	[UserVisible(true)]
-	[Order(After = Priority.Default)]
-	internal sealed class SemanticNamespaceFormat : ClassificationFormatDefinition
-	{
-		public SemanticNamespaceFormat()
-		{
-			DisplayName = "Semantic Namespace";
-			FontTypeface = StyleHelper.DefinitionFontFace;
-			FontRenderingSize = StyleHelper.NamespaceFontRenderingSize;
-		}
-	}
+	//[Export(typeof(EditorFormatDefinition))]
+	//[ClassificationType(ClassificationTypeNames = Constants.NamespaceFormat)]
+	//[Name(Constants.NamespaceFormat)]
+	//[UserVisible(true)]
+	//[Order(After = Priority.Default)]
+	//internal sealed class SemanticNamespaceFormat : ClassificationFormatDefinition
+	//{
+	//	public SemanticNamespaceFormat()
+	//	{
+	//		DisplayName = "Semantic Namespace";
+	//		FontTypeface = StyleHelper.DefinitionFontFace;
+	//		FontRenderingSize = StyleHelper.NamespaceFontRenderingSize;
+	//	}
+	//}
 
 	[Export(typeof(EditorFormatDefinition))]
 	[ClassificationType(ClassificationTypeNames = Constants.PropertyFormat)]
