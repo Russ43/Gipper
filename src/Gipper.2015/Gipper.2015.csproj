@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Classifiers\GipperClassifier\ClassificationFormatDefinitions\NamespaceDefinitionCfd.cs" />
     <Compile Include="Classifiers\GipperClassifier\ClassificationHelper.cs" />
+    <Compile Include="Classifiers\GipperClassifier\GipperTaggerBase.cs" />
     <Compile Include="Classifiers\GipperClassifier\GipperTagger.cs" />
     <Compile Include="Classifiers\GipperClassifier\GipperTaggerProvider.cs" />
     <Compile Include="Classifiers\GipperClassifier\StyleHelper.cs" />

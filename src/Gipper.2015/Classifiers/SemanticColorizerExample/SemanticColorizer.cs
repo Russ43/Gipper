@@ -155,8 +155,7 @@ namespace SemanticColorizer
 						yield return id.TextSpan.ToTagSpan(snapshot, _parameterType);
 						break;
 					case SymbolKind.Namespace:
-						if(Gipper._2015.Classifiers.GipperClassifier.ClassificationHelper.GetClassificationType(node, symbol) == "namespace")
-							yield return id.TextSpan.ToTagSpan(snapshot, _namespaceType);
+						yield return id.TextSpan.ToTagSpan(snapshot, _namespaceType);
 						break;
 					case SymbolKind.Property:
 						yield return id.TextSpan.ToTagSpan(snapshot, _propertyType);
