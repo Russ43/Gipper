@@ -21,6 +21,40 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 
 			return isNamepsaceDeclaration;
 		}
+
+		public static bool IsTypeDeclaration(SyntaxNode node, ISymbol symbol)
+		{
+			Debug.Assert(node != null);
+			Debug.Assert(symbol != null);
+
+			bool isTypeDeclaration = false;
+
+			if(symbol.Kind == SymbolKind.NamedType)
+			{
+				if(node is VariableDeclaratorSyntax)
+					isTypeDeclaration = true;
+			}
+
+			return isTypeDeclaration;
+		}
+
+		public static bool IsMemberDeclaration(SyntaxNode node, ISymbol symbol)
+		{
+			Debug.Assert(node != null);
+			Debug.Assert(symbol != null);
+
+			bool isMemberDeclaration = false;
+			if(symbol.Kind == SymbolKind.Event 
+				|| symbol.Kind == SymbolKind.Field
+				|| symbol.Kind == SymbolKind.Method
+				|| symbol.Kind == SymbolKind.Property)
+			{
+				if(node is VariableDeclaratorSyntax)
+					isMemberDeclaration = true;
+			}
+
+			return isMemberDeclaration;
+		}
 		#endregion
 	}
 }

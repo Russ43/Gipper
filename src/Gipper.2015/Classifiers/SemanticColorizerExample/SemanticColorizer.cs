@@ -66,7 +66,7 @@ namespace SemanticColorizer
 			_constructorType = registry.GetClassificationType(Constants.ConstructorFormat);
 			_typeParameterType = registry.GetClassificationType(Constants.TypeParameterFormat);
 			_parameterType = registry.GetClassificationType(Constants.ParameterFormat);
-			_namespaceType = registry.GetClassificationType(NamespaceDefinitionCfd.Name);
+			_namespaceType = registry.GetClassificationType(Constants.TypeSpecialFormat);
 			_propertyType = registry.GetClassificationType(Constants.PropertyFormat);
 			_localType = registry.GetClassificationType(Constants.LocalFormat);
 			_typeSpecialType = registry.GetClassificationType(Constants.TypeSpecialFormat);

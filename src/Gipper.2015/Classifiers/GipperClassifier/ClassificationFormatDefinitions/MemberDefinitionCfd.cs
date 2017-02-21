@@ -10,26 +10,26 @@ namespace Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefiniti
 	[Name(Name)]
 	[UserVisible(true)]
 	[Order(After = Priority.Default)]
-	internal class NamespaceDefinitionCfd : ClassificationFormatDefinition
+	internal class MemberDefinitionCfd : ClassificationFormatDefinition
 	{
 		#region constants
-		public const string Name = "Gipper.Cfd.NamespaceDefinition";
+		public const string Name = "Gipper.Cfd.MemberDefinition";
 		#endregion region
 
 		#region constructors
-		public NamespaceDefinitionCfd()
+		public MemberDefinitionCfd()
 		{
-			DisplayName = "Namespace Definition";
+			DisplayName = "Member Definition";
 			FontTypeface = StyleHelper.DefinitionFontFace;
-			FontRenderingSize = StyleHelper.NamespaceFontRenderingSize;
+			FontRenderingSize = StyleHelper.MemberFontRenderingSize;
 		}
 		#endregion
 
 		#region exports
 #pragma warning disable CS0649
 		[Export(typeof(ClassificationTypeDefinition))]
-		[Name(NamespaceDefinitionCfd.Name)]
-		internal static ClassificationTypeDefinition NamespaceDefinition;
+		[Name(MemberDefinitionCfd.Name)]
+		internal static ClassificationTypeDefinition MemberDefinition;
 #pragma warning restore CS0649
 		#endregion
 	}

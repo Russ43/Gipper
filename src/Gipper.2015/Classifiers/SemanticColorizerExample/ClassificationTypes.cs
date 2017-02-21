@@ -40,9 +40,6 @@ namespace SemanticColorizer
 		[Name(Constants.ParameterFormat)]
 		internal static ClassificationTypeDefinition ParameterType;
 
-		[Export(typeof(ClassificationTypeDefinition))]
-		[Name(NamespaceDefinitionCfd.Name)]
-		internal static ClassificationTypeDefinition NamespaceType;
 
 		[Export(typeof(ClassificationTypeDefinition))]
 		[Name(Constants.PropertyFormat)]

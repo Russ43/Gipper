@@ -45,6 +45,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Classifiers\GipperClassifier\ClassificationFormatDefinitions\MemberDefinitionCfd.cs" />
+    <Compile Include="Classifiers\GipperClassifier\ClassificationFormatDefinitions\TypeDefinitionCfd.cs" />
     <Compile Include="Classifiers\GipperClassifier\ClassificationFormatDefinitions\NamespaceDefinitionCfd.cs" />
     <Compile Include="Classifiers\GipperClassifier\ClassificationHelper.cs" />
     <Compile Include="Classifiers\GipperClassifier\GipperTaggerBase.cs" />
