@@ -49,6 +49,8 @@
     <Compile Include="Classifiers\GipperClassifier\ClassificationFormatDefinitions\TypeDefinitionCfd.cs" />
     <Compile Include="Classifiers\GipperClassifier\ClassificationFormatDefinitions\NamespaceDefinitionCfd.cs" />
     <Compile Include="Classifiers\GipperClassifier\ClassificationHelper.cs" />
+    <Compile Include="Classifiers\GipperClassifier\ClassifiedSpanInfo.cs" />
+    <Compile Include="Classifiers\GipperClassifier\ClassifierContext.cs" />
     <Compile Include="Classifiers\GipperClassifier\GipperTaggerBase.cs" />
     <Compile Include="Classifiers\GipperClassifier\GipperTagger.cs" />
     <Compile Include="Classifiers\GipperClassifier\GipperTaggerProvider.cs" />

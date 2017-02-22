@@ -14,6 +14,7 @@ using CSharp = Microsoft.CodeAnalysis.CSharp;
 using VB = Microsoft.CodeAnalysis.VisualBasic;
 using Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefinitions;
 using SemanticColorizer;
+using System.Diagnostics;
 
 namespace Gipper._2015.Classifiers.GipperClassifier
 {
@@ -34,7 +35,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 			_theBuffer = buffer;
 		}
 
-		public abstract IClassificationType GetClassificationType(SyntaxNode node, ISymbol symbol);
+		public abstract IClassificationType GetClassificationType(ClassifierContext classifierContext);
 
 		public IEnumerable<ITagSpan<IClassificationTag>> GetTags(NormalizedSnapshotSpanCollection spans)
 		{
@@ -73,19 +74,24 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 		{
 			var snapshot = spans[0].Snapshot;
 
-			IEnumerable<ClassifiedSpan> identifiers =
-				GetIdentifiersInSpans(doc.Workspace, doc.SemanticModel, spans);
+			IEnumerable<ClassifiedSpan> classifiedSpans =
+				GetClassifiedSpansInSpans(doc.Workspace, doc.SemanticModel, spans);
 
-			foreach(var id in identifiers)
+			ClassifierContext classifierContext = new ClassifierContext();
+			foreach(var id in classifiedSpans)
 			{
 				var node = GetExpression(doc.SyntaxRoot.FindNode(id.TextSpan));
 				var symbol = doc.SemanticModel.GetSymbolInfo(node).Symbol;
-				if(symbol == null) symbol = doc.SemanticModel.GetDeclaredSymbol(node);
+				if(symbol == null)
+					symbol = doc.SemanticModel.GetDeclaredSymbol(node);
 				if(symbol == null)
 				{
 					continue;
 				}
-				IClassificationType classificationType = GetClassificationType(node, symbol);
+				ClassifiedSpanInfo classifiedSpanInfo = new ClassifiedSpanInfo(id, node, symbol);
+				classifierContext.SetNextInfo(classifiedSpanInfo);
+				IClassificationType classificationType = GetClassificationType(classifierContext);
+				//Debug.WriteLine($"Node={node.GetType().Name},Parent={node.Parent?.GetType().Name},ClassificationType={id.ClassificationType},Symbol={symbol?.Kind},TextRng={id.TextSpan.ToString()},Text={snapshot.GetText(id.TextSpan)},CT={classificationType}");
 				if(classificationType != null)
 					yield return id.TextSpan.ToTagSpan(snapshot, classificationType);
 			}
@@ -120,7 +126,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 			return node;
 		}
 
-		private IEnumerable<ClassifiedSpan> GetIdentifiersInSpans(
+		private IEnumerable<ClassifiedSpan> GetClassifiedSpansInSpans(
 				Workspace workspace, SemanticModel model,
 				NormalizedSnapshotSpanCollection spans)
 		{
@@ -132,9 +138,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 					return Classifier.GetClassifiedSpans(model, textSpan, workspace);
 				});
 
-			return from cs in classifiedSpans
-					where comparer.Compare(cs.ClassificationType, "identifier") == 0
-					select cs;
+			return classifiedSpans;
 		}
 
 		private class Cache

@@ -25,13 +25,13 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 		#endregion
 
 		#region GipperTaggerBase methods
-		public override IClassificationType GetClassificationType(SyntaxNode node, ISymbol symbol)
+		public override IClassificationType GetClassificationType(ClassifierContext classifierContext)
 		{
-			if(ClassificationHelper.IsNamespaceDeclaration(node, symbol))
+			if(ClassificationHelper.IsNamespaceDeclaration(classifierContext))
 				return _namespaceType;
-			if(ClassificationHelper.IsTypeDeclaration(node, symbol))
+			if(ClassificationHelper.IsTypeDeclaration(classifierContext))
 				return _typeType;
-			if(ClassificationHelper.IsMemberDeclaration(node, symbol))
+			if(ClassificationHelper.IsMemberDeclaration(classifierContext))
 				return _memberType;
 
 			return null;
