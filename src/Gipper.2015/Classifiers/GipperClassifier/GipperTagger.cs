@@ -12,6 +12,8 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 		private readonly IClassificationType _namespaceType;
 		private readonly IClassificationType _typeType;
 		private readonly IClassificationType _memberType;
+		private readonly IClassificationType _commentType;
+		private readonly IClassificationType _literalType;
 		#endregion
 
 		#region constructors
@@ -21,6 +23,8 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 			_namespaceType = registry.GetClassificationType(NamespaceDefinitionCfd.Name);
 			_typeType = registry.GetClassificationType(TypeDefinitionCfd.Name);
 			_memberType = registry.GetClassificationType(MemberDefinitionCfd.Name);
+			_commentType = registry.GetClassificationType(CommentDefinitionCfd.Name);
+			_literalType = registry.GetClassificationType(LiteralDefinitionCfd.Name);
 		}
 		#endregion
 
@@ -33,6 +37,10 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 				return _typeType;
 			if(ClassificationHelper.IsMemberDeclaration(classifierContext))
 				return _memberType;
+			if(ClassificationHelper.IsCommentDeclaration(classifierContext))
+				return _commentType;
+			if(ClassificationHelper.IsLiteral(classifierContext))
+				return _literalType;
 
 			return null;
 		}

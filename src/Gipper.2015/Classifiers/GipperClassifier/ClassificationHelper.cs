@@ -13,10 +13,9 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 			ISymbol symbol = classifierContext.Info.Symbol;
 
 			Debug.Assert(node != null);
-			Debug.Assert(symbol != null);
 
 			bool isNamepsaceDeclaration = false;
-			if(symbol.Kind == SymbolKind.Namespace)
+			if(symbol != null && symbol.Kind == SymbolKind.Namespace)
 			{
 				if(node.Parent is NamespaceDeclarationSyntax)
 					isNamepsaceDeclaration = true;
@@ -31,10 +30,9 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 			ISymbol symbol = classifierContext.Info.Symbol;
 
 			Debug.Assert(node != null);
-			Debug.Assert(symbol != null);
 
 			bool isTypeDeclaration = false;
-			if(symbol.Kind == SymbolKind.NamedType)
+			if(symbol != null && symbol.Kind == SymbolKind.NamedType)
 			{
 				if(classifierContext.Info.ClassifiedSpan.ClassificationType == "class name")
 				{
@@ -58,28 +56,42 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 			ISymbol symbol = classifierContext.Info.Symbol;
 
 			Debug.Assert(node != null);
-			Debug.Assert(symbol != null);
 
 			bool isMemberDeclaration = false;
 			if(classifierContext.Info.ClassifiedSpan.ClassificationType == "identifier")
 			{
-				if(symbol.Kind == SymbolKind.Event
-					|| symbol.Kind == SymbolKind.Field
-					|| symbol.Kind == SymbolKind.Method
-					|| symbol.Kind == SymbolKind.Property)
+				if(symbol != null)
 				{
-					if(node is VariableDeclaratorSyntax
-						|| node is ConstructorDeclarationSyntax
-						|| node is MethodDeclarationSyntax
-						|| node is PropertyDeclarationSyntax)
+					if(symbol.Kind == SymbolKind.Event
+						|| symbol.Kind == SymbolKind.Field
+						|| symbol.Kind == SymbolKind.Method
+						|| symbol.Kind == SymbolKind.Property)
 					{
-						if(classifierContext.PreviousInfo?.ClassifiedSpan.ClassificationType != "xml doc comment - attribute quotes")	// ignore XML doc cref indentifiers
-							isMemberDeclaration = true;
+						if(node is VariableDeclaratorSyntax
+							|| node is ConstructorDeclarationSyntax
+							|| node is MethodDeclarationSyntax
+							|| node is PropertyDeclarationSyntax)
+						{
+							if(classifierContext.PreviousInfo?.ClassifiedSpan.ClassificationType != "xml doc comment - attribute quotes")   // ignore XML doc cref indentifiers
+								isMemberDeclaration = true;
+						}
 					}
 				}
 			}
 
 			return isMemberDeclaration;
+		}
+
+		public static bool IsCommentDeclaration(ClassifierContext classifierContext)
+		{
+			return classifierContext.Info.ClassifiedSpan.ClassificationType.Contains("comment");
+		}
+
+		public static bool IsLiteral(ClassifierContext classifierContext)
+		{
+			return (classifierContext.Info.Node is LiteralExpressionSyntax
+				|| classifierContext.Info.Node is InterpolatedStringTextSyntax
+				|| classifierContext.Info.Node is InterpolationSyntax);
 		}
 		#endregion
 	}
