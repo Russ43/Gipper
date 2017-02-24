@@ -13,27 +13,27 @@ using System.Windows.Media;
 
 namespace Gipper._2015.Classifiers
 {
-	[Export(typeof(IViewTaggerProvider))]
-	[ContentType("text")]
-	[TagType(typeof(TextMarkerTag))]
-	internal class HighlightWordTaggerProvider : IViewTaggerProvider
-	{
-		[Import]
-		internal ITextSearchService TextSearchService { get; set; }
+	//[Export(typeof(IViewTaggerProvider))]
+	//[ContentType("text")]
+	//[TagType(typeof(TextMarkerTag))]
+	//internal class HighlightWordTaggerProvider : IViewTaggerProvider
+	//{
+	//	[Import]
+	//	internal ITextSearchService TextSearchService { get; set; }
 
-		[Import]
-		internal ITextStructureNavigatorSelectorService TextStructureNavigatorSelector { get; set; }
+	//	[Import]
+	//	internal ITextStructureNavigatorSelectorService TextStructureNavigatorSelector { get; set; }
 
-		public ITagger<T> CreateTagger<T>(ITextView textView, ITextBuffer buffer) where T : ITag
-		{
-			//provide highlighting only on the top buffer   
-			if(textView.TextBuffer != buffer)
-				return null;
+	//	public ITagger<T> CreateTagger<T>(ITextView textView, ITextBuffer buffer) where T : ITag
+	//	{
+	//		//provide highlighting only on the top buffer   
+	//		if(textView.TextBuffer != buffer)
+	//			return null;
 
-			ITextStructureNavigator textStructureNavigator =
-				TextStructureNavigatorSelector.GetTextStructureNavigator(buffer);
+	//		ITextStructureNavigator textStructureNavigator =
+	//			TextStructureNavigatorSelector.GetTextStructureNavigator(buffer);
 
-			return new HighlightWordTagger(textView, buffer, TextSearchService, textStructureNavigator) as ITagger<T>;
-		}
-	}
+	//		return new HighlightWordTagger(textView, buffer, TextSearchService, textStructureNavigator) as ITagger<T>;
+	//	}
+	//}
 }
