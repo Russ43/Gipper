@@ -21,6 +21,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefiniti
 		{
 			DisplayName = "Comment Definition";
 			FontTypeface = StyleHelper.CommentFontFace;
+			FontRenderingSize = StyleHelper.CommentFontRenderingSize;
 		}
 		#endregion
 

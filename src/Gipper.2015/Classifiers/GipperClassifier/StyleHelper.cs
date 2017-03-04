@@ -12,6 +12,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 	{
 		public static readonly Typeface DefinitionFontFace = new Typeface("Segoe UI Black");
 		public static readonly Typeface CommentFontFace = new Typeface("Segoe Print");
+		public const double CommentFontRenderingSize = 13;
 		public static readonly Typeface LiteralFontFace = new Typeface(new FontFamily("Courier New"), FontStyles.Normal, FontWeights.Heavy, FontStretches.Normal);
 		public const double NamespaceFontRenderingSize = 30;
 		public const double TypeFontRenderingSize = 24;
