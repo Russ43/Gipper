@@ -35,8 +35,11 @@ namespace Gipper
 			if(!(buffer.ContentType.DisplayName == "CSharp" || buffer.ContentType.DisplayName == "TypeScript"))
 				return null;
 
-			// BUGBUG: And actually, in Visual Studio 2015, it crashes (also StackOverflowException??) for even plain "CSharp."
-			if(Gipper.GipperPackage.Dte.Version == "14.0")
+			// BUGBUG: And actually, in Visual Studio 2015 and above, it crashes (also StackOverflowException??) for even plain "CSharp."
+			string versionString = Gipper.GipperPackage.Dte.Version;
+			double vsVersion = 9999;
+			double.TryParse(Gipper.GipperPackage.Dte.Version, out vsVersion);
+			if(vsVersion >= 14.0)
 				return null;
 
 			if(VariableHelper.GetVariable("CLASSIFIER", "DISABLED") == "1")
