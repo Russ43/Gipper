@@ -1,5 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 using System.Diagnostics;
+using System.Linq;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Gipper._2015.Classifiers.GipperClassifier
@@ -17,7 +18,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 			bool isNamepsaceDeclaration = false;
 			if(symbol != null && symbol.Kind == SymbolKind.Namespace)
 			{
-				if(node.Parent is NamespaceDeclarationSyntax)
+				if(node.Ancestors().Any(sn => sn is NamespaceDeclarationSyntax))
 					isNamepsaceDeclaration = true;
 			}
 
