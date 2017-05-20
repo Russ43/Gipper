@@ -48,6 +48,7 @@
     <Compile Include="Classifiers\GipperClassifier\ClassificationFormatDefinitions\LiteralCfd.cs" />
     <Compile Include="Classifiers\GipperClassifier\ClassificationFormatDefinitions\CommentCfd.cs" />
     <Compile Include="Classifiers\GipperClassifier\ClassificationFormatDefinitions\MemberDefinitionCfd.cs" />
+    <Compile Include="Classifiers\GipperClassifier\ClassificationFormatDefinitions\ParenDefinitionCfd.cs" />
     <Compile Include="Classifiers\GipperClassifier\ClassificationFormatDefinitions\TypeDefinitionCfd.cs" />
     <Compile Include="Classifiers\GipperClassifier\ClassificationFormatDefinitions\NamespaceDefinitionCfd.cs" />
     <Compile Include="Classifiers\GipperClassifier\ClassificationHelper.cs" />

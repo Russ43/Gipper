@@ -3,6 +3,8 @@ using Microsoft.VisualStudio.Text;
 using Microsoft.VisualStudio.Text.Classification;
 using Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefinitions;
 using System.Diagnostics;
+using System.Linq;
+using System;
 
 namespace Gipper._2015.Classifiers.GipperClassifier
 {
@@ -14,6 +16,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 		private readonly IClassificationType _memberType;
 		private readonly IClassificationType _commentType;
 		private readonly IClassificationType _literalType;
+		private readonly IClassificationType[] _parenTypes;
 		#endregion
 
 		#region constructors
@@ -25,6 +28,9 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 			_memberType = registry.GetClassificationType(MemberDefinitionCfd.Name);
 			_commentType = registry.GetClassificationType(CommentDefinitionCfd.Name);
 			_literalType = registry.GetClassificationType(LiteralDefinitionCfd.Name);
+			_parenTypes = Enumerable.Range(0, 16)
+				.Select(idx => registry.GetClassificationType(ParenDefinitionCfd.Name + "_" + idx.ToString()))
+				.ToArray();
 		}
 		#endregion
 
@@ -41,6 +47,10 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 				return _commentType;
 			if(ClassificationHelper.IsLiteral(classifierContext))
 				return _literalType;
+
+			int parenScale = ClassificationHelper.GetParenScale(classifierContext);
+			if(parenScale > 0)
+				return _parenTypes[Math.Min(parenScale, 15)];
 
 			return null;
 		}

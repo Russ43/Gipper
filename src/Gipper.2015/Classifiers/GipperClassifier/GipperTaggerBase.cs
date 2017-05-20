@@ -84,10 +84,11 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 				var symbol = doc.SemanticModel.GetSymbolInfo(node).Symbol;
 				if(symbol == null)
 					symbol = doc.SemanticModel.GetDeclaredSymbol(node);
-				ClassifiedSpanInfo classifiedSpanInfo = new ClassifiedSpanInfo(id, node, symbol);
+				string text = snapshot.GetText(id.TextSpan);
+				ClassifiedSpanInfo classifiedSpanInfo = new ClassifiedSpanInfo(id, node, symbol, text);
 				classifierContext.SetNextInfo(classifiedSpanInfo);
 				IClassificationType classificationType = GetClassificationType(classifierContext);
-				Debug.WriteLine($"Node={node.GetType().Name},Parent={node.Parent?.GetType().Name},ClassificationType={id.ClassificationType},Symbol={symbol?.Kind},TextRng={id.TextSpan.ToString()},Text={snapshot.GetText(id.TextSpan)},CT={classificationType}");
+				Debug.WriteLine($"Node={node.GetType().Name},Parent={node.Parent?.GetType().Name},ClassificationType={id.ClassificationType},Symbol={symbol?.Kind},TextRng={id.TextSpan.ToString()},Text={text},CT={classificationType}");
 				if(classificationType != null)
 					yield return id.TextSpan.ToTagSpan(snapshot, classificationType);
 			}

@@ -6,11 +6,12 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 	internal class ClassifiedSpanInfo
 	{
 		#region constructors
-		public ClassifiedSpanInfo(ClassifiedSpan classifiedSpan, SyntaxNode node, ISymbol symbol)
+		public ClassifiedSpanInfo(ClassifiedSpan classifiedSpan, SyntaxNode node, ISymbol symbol, string text)
 		{
 			ClassifiedSpan = classifiedSpan;
 			Node = node;
 			Symbol = symbol;
+			Text = text;
 		}
 		#endregion
 
@@ -28,6 +29,12 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 		}
 
 		public ISymbol Symbol
+		{
+			get;
+			private set;
+		}
+
+		public string Text
 		{
 			get;
 			private set;
