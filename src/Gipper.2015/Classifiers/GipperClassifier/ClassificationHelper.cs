@@ -107,35 +107,18 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 			{
 				if(classifierContext.Info.Text == "(" || classifierContext.Info.Text == ")")
 				{
-					//int depth = node.AncestorsAndSelf().Count(sn => sn is ParenthesizedExpressionSyntax) + 1;
-					//int maxDepth = node.DescendantNodes(sn => sn is ParenthesizedExpressionSyntax).Count();
+					IEnumerable<SyntaxNode> ancestorExpressions = node.AncestorsAndSelf()
+						.Where(sn => sn is ExpressionSyntax);
+					SyntaxNode topMostExpression = ancestorExpressions.LastOrDefault();
+					if(topMostExpression == null)
+						topMostExpression = node;
+					int depth = node.Ancestors().Count();
+					int maxDepth = node.DescendantNodes(sn => sn is ExpressionSyntax)
+						.Select(sn => sn.Ancestors().Count())
+						.DefaultIfEmpty(0)
+						.Max();
 
-					IEnumerable<SyntaxNode> ancestorParenthesizedExpressions = node.AncestorsAndSelf()
-						.Where(sn => sn is ParenthesizedExpressionSyntax);
-					if(ancestorParenthesizedExpressions.Count() > 0)
-					{
-						SyntaxNode topMostParenthesizedExpression = ancestorParenthesizedExpressions.LastOrDefault();
-						if(topMostParenthesizedExpression == null)
-							topMostParenthesizedExpression = node;
-						int depth = node.Ancestors().Count();
-						int maxDepth = topMostParenthesizedExpression.DescendantNodes(sn => sn is ParenthesizedExpressionSyntax)
-							.Select(sn => sn.Ancestors().Count())
-							.Max();
-
-						return (maxDepth - depth) + 1;
-					}
-					else
-					{
-						int depth = node.Parent.Ancestors().Count();
-						IEnumerable<SyntaxNode> parentDescendants = node.Parent.DescendantNodes(sn => sn is ParenthesizedExpressionSyntax);
-						if(parentDescendants.Count() > 0)
-						{
-							int maxDepth = parentDescendants
-								.Select(sn => sn.Ancestors().Count())
-								.Max();
-							return (maxDepth + 1);
-						}
-					}
+					return (maxDepth - depth) + 1;
 				}
 			}
 
