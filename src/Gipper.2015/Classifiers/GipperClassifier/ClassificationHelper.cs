@@ -107,18 +107,14 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 			{
 				if(classifierContext.Info.Text == "(" || classifierContext.Info.Text == ")")
 				{
-					IEnumerable<SyntaxNode> ancestorExpressions = node.AncestorsAndSelf()
-						.Where(sn => sn is ExpressionSyntax);
-					SyntaxNode topMostExpression = ancestorExpressions.LastOrDefault();
-					if(topMostExpression == null)
-						topMostExpression = node;
-					int depth = node.Ancestors().Count();
-					int maxDepth = node.DescendantNodes(sn => sn is ExpressionSyntax)
+					int currentDepth = node.Ancestors().Count();
+					int maxDepth = node.DescendantNodes()
+						.Where(sn => sn is ExpressionSyntax)
 						.Select(sn => sn.Ancestors().Count())
-						.DefaultIfEmpty(0)
+						.DefaultIfEmpty(currentDepth)
 						.Max();
 
-					return (maxDepth - depth) + 1;
+					return (maxDepth - currentDepth) + 1;
 				}
 			}
 
