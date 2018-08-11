@@ -3,6 +3,7 @@
 # https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # ignore Visual Studio user-specific files
+/src/.vs
 *.suo
 *.user
 
