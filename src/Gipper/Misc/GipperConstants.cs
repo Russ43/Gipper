@@ -29,6 +29,11 @@ namespace Gipper
 		public const string FormatClassificationType_Keyword = "formal language > keyword";
 		public const string FormatClassificationType_Identifier = "formal language > identifier";
 		public const string FormatClassificationType_Operator = "formal language > operator";
+		public const string FormatClassificationType_ClassName = "formal language > class name";
+		public const string FormatClassificationType_StructName = "formal language > struct name";
+		public const string FormatClassificationType_InterfaceName = "formal language > interface name";
+		public const string FormatClassificationType_EnumName = "formal language > enum name";
+		public const string FormatClassificationType_DelegateName = "formal language > delegate name";
 		public const string FormatClassificationType_UserTypes = "formal language > User Types";
 		public const string FormatClassificationType_Literal = "formal language > literal";
 		public const string FormatClassificationType_Literal_Number = "formal language > literal > number";

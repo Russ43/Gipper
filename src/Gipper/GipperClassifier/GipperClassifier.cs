@@ -69,6 +69,7 @@ namespace Gipper
 			IList<ClassificationSpan> existingSpans = _aggregateClassifier.GetClassificationSpans(span);
 			IList<ClassificationSpan> newSpans = new List<ClassificationSpan>();
 
+			// TODO: uncomment this line to help debug classification issues
 			//Helper.WriteClassifierSnapshotToDebug(span, existingSpans);
 
 			foreach(ClassificationSpan existingSpan in existingSpans)
@@ -215,22 +216,14 @@ namespace Gipper
 
 			string formattedClassificationType = Helper.FormatClassificationType(classificationSpan.ClassificationType);
 			if(
-				formattedClassificationType == GipperConstants.FormatClassificationType_Identifier
-				|| formattedClassificationType == GipperConstants.FormatClassificationType_UserTypes
+				formattedClassificationType == GipperConstants.FormatClassificationType_ClassName
+				|| formattedClassificationType == GipperConstants.FormatClassificationType_StructName
+				|| formattedClassificationType == GipperConstants.FormatClassificationType_InterfaceName
+				|| formattedClassificationType == GipperConstants.FormatClassificationType_EnumName
+				|| formattedClassificationType == GipperConstants.FormatClassificationType_DelegateName
 			)
 			{
-				foreach(ClassificationSpan span in snapshotSpans)
-				{
-					if(Helper.FormatClassificationType(span.ClassificationType) == GipperConstants.FormatClassificationType_Keyword)
-					{
-						string text = span.Span.GetText();
-						if(text == "class" || text == "struct" || text == "enum" || text == "delegate" || text == "interface")
-						{
-							isTypeDeclaration = true;
-							break;
-						}
-					}
-				}
+				isTypeDeclaration = true;
 			}
 
 			return isTypeDeclaration;
