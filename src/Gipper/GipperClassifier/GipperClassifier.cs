@@ -140,7 +140,9 @@ namespace Gipper
 		{
 			bool isComment = false;
 			string formattedClassificationType = Helper.FormatClassificationType(span.ClassificationType);
-			if(	formattedClassificationType.StartsWith(GipperConstants.FormatClassificationType_Comment))
+			if(formattedClassificationType.StartsWith(GipperConstants.FormatClassificationType_Comment))
+				isComment = true;
+			if(formattedClassificationType.StartsWith(GipperConstants.FormatClassificationType_XmlDocComment))
 				isComment = true;
 
 			return isComment;
