@@ -21,7 +21,7 @@ namespace Gipper
 			DisplayName = GipperConstants.FormatDefinition_Declaration_Namespace_DisplayName;
 			FontTypeface = new Typeface("Segoe UI Bold");
 			IsBold = true;
-			FontRenderingSize = 27;
+			FontRenderingSize = 34;
 		}
 	}
 }

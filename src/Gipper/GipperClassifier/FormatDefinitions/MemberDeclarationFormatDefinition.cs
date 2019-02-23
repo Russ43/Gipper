@@ -19,7 +19,7 @@ namespace Gipper
 		public MemberDeclarationFormatDefinition()
 		{
 			DisplayName = GipperConstants.FormatDefinition_Declaration_Member_DisplayName;
-			FontRenderingSize = 17;
+			FontRenderingSize = 21;
 			IsBold = true;
 		}
 	}
