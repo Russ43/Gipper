@@ -234,26 +234,31 @@ namespace Gipper
 		static private bool IsMemberDeclaration(ClassificationSpan classificationSpan, IList<ClassificationSpan> snapshotSpans)
 		{
 			// TODO: add way more criteria than simply checked the visiblity keyword
-			bool hasVisibilityKeyword = false;
 
-			string formattedClassificationType = Helper.FormatClassificationType(classificationSpan.ClassificationType);
-			if(formattedClassificationType == GipperConstants.FormatClassificationType_Identifier)
-			{
-				foreach(ClassificationSpan span in snapshotSpans)
-				{
-					if(Helper.FormatClassificationType(span.ClassificationType) == GipperConstants.FormatClassificationType_Keyword)
-					{
-						string text = span.Span.GetText();
-						if(text == "private" || text == "public" || text == "internal" || text == "function" || text == "void" || text == "event")
-						{
-							hasVisibilityKeyword = true;
-							break;
-						}
-					}
-				}
-			}
+			// all members seem to be classifed as Identifier
+			if(!(Helper.FormatClassificationType(classificationSpan.ClassificationType) == GipperConstants.FormatClassificationType_Identifier))
+				return false;
 
-			return hasVisibilityKeyword;
+			// member snapshot spans seem to have some kind of visibility keyword or void or event; otherwise regular lines of code will
+			// classify things as member declarations; however this misses things like methods on an interface
+			string[] magicKeywords = { "private", "public", "internal", "function", "void", "event" };
+			bool snapshotSpanContainMagicKeyword = snapshotSpans.Any(
+				span =>
+					magicKeywords.Contains(span.Span.GetText())
+			);
+			if(!snapshotSpanContainMagicKeyword)
+				return false;
+
+			// in methods, parameter types are also classified as Identifier, so ignore those
+			ClassificationSpan firstIdentifier = snapshotSpans.FirstOrDefault(
+				span => 
+					Helper.FormatClassificationType(span.ClassificationType) == GipperConstants.FormatClassificationType_Identifier
+			);
+			bool isFirstIdentifier = (firstIdentifier == classificationSpan);
+			if(!isFirstIdentifier)
+				return false;
+
+			return true;
 		}
 	}
 }
