@@ -69,8 +69,7 @@ namespace Gipper
 			IList<ClassificationSpan> existingSpans = _aggregateClassifier.GetClassificationSpans(span);
 			IList<ClassificationSpan> newSpans = new List<ClassificationSpan>();
 
-			// TODO: uncomment this line to help debug classification issues
-			//Helper.WriteClassifierSnapshotToDebug(span, existingSpans);
+			Helper.WriteClassifierSnapshotToDebug(span, existingSpans);
 
 			foreach(ClassificationSpan existingSpan in existingSpans)
 			{
@@ -249,13 +248,29 @@ namespace Gipper
 			if(!snapshotSpanContainMagicKeyword)
 				return false;
 
-			// in methods, parameter types are also classified as Identifier, so ignore those
-			ClassificationSpan firstIdentifier = snapshotSpans.FirstOrDefault(
-				span => 
-					Helper.FormatClassificationType(span.ClassificationType) == GipperConstants.FormatClassificationType_Identifier
-			);
-			bool isFirstIdentifier = (firstIdentifier == classificationSpan);
-			if(!isFirstIdentifier)
+			// in general (enums are a notable exception, but arguably their fields look better in a smaller font anyway) the member is the
+			// last identifier excluding those inside punctuation (type parameters inside angle brackets or parameters inside parenthesis)
+			IList<ClassificationSpan> topLevelSpans = new List<ClassificationSpan>(snapshotSpans.Count);
+			int level = 1;
+			foreach(ClassificationSpan span in snapshotSpans)
+			{
+				string classificationType = Helper.FormatClassificationType(span.ClassificationType);
+				if(classificationType == GipperConstants.FormatClassificationType_Identifier)
+				{
+					if(level == 1)
+						topLevelSpans.Add(span);
+				}
+				if(classificationType == GipperConstants.FormatClassificationType_Punctuation)
+				{
+					string text = span.Span.GetText();
+					if(text == "(" || text == "<")
+						++level;
+					if(text == ")" || text == ">")
+						--level;
+				}
+			}
+			bool isLastIdentifier = (topLevelSpans.LastOrDefault() == classificationSpan);
+			if(!isLastIdentifier)
 				return false;
 
 			return true;

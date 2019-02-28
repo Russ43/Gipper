@@ -38,6 +38,7 @@ namespace Gipper
 		public const string FormatClassificationType_Literal = "formal language > literal";
 		public const string FormatClassificationType_Literal_Number = "formal language > literal > number";
 		public const string FormatClassificationType_Literal_String = "formal language > literal > string";
+		public const string FormatClassificationType_Punctuation = "formal language > punctuation";
 		public const string FormatClassificationType_XmlDocComment = "formal language > xml doc comment";
 		public const string FormatClassificationType_XmlDocTag = "formal language > XML Doc Tag";
 	}

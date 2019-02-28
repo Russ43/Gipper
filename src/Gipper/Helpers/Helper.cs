@@ -168,6 +168,7 @@ namespace Gipper
 
 		static public void WriteClassifierSnapshotToDebug(SnapshotSpan span, IList<ClassificationSpan> existingSpans)
 		{
+#if DEBUG
 			Debug.WriteLine(string.Format("*** SnapshotSpan {0} ***", span));
 
 			IList<ClassificationSpan> newSpans = new List<ClassificationSpan>();
@@ -181,6 +182,7 @@ namespace Gipper
 				Debug.WriteLine(existingSpan.Span.ToString() + " | " + existingSpan.Span.GetText() + " |  " + FormatClassificationType(existingSpan.ClassificationType));
 
 			Debug.WriteLine("");
+#endif
 		}
 
 		static public string FormatClassificationType(IClassificationType type)
