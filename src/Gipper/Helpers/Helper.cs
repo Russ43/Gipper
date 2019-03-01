@@ -179,7 +179,7 @@ namespace Gipper
 				Debug.WriteLine(normSpan);
 
 			foreach(ClassificationSpan existingSpan in existingSpans)
-				Debug.WriteLine(existingSpan.Span.ToString() + " | " + existingSpan.Span.GetText() + " |  " + FormatClassificationType(existingSpan.ClassificationType));
+				Debug.WriteLine("Line: " + existingSpan.Span.Start.GetContainingLine().LineNumber + ": " + existingSpan.Span.ToString() + " | " + existingSpan.Span.GetText() + " |  " + FormatClassificationType(existingSpan.ClassificationType));
 
 			Debug.WriteLine("");
 #endif
