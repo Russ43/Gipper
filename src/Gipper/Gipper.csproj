@@ -415,6 +415,13 @@
     <Compile Include="Taggers\GipperTagger.cs" />
     <Compile Include="Taggers\GipperTaggerBase.cs" />
     <Compile Include="Taggers\GipperTaggerProvider.cs" />
+    <Compile Include="Taggers\SemanticColorizerExample\ClassificationTypes.cs" />
+    <Compile Include="Taggers\SemanticColorizerExample\Constants.cs" />
+    <Compile Include="Taggers\SemanticColorizerExample\CSharpExtensions.cs" />
+    <Compile Include="Taggers\SemanticColorizerExample\EditorFormats.cs" />
+    <Compile Include="Taggers\SemanticColorizerExample\Extensions.cs" />
+    <Compile Include="Taggers\SemanticColorizerExample\SemanticColorizer.cs" />
+    <Compile Include="Taggers\SemanticColorizerExample\VisualBasicExtensions.cs" />
     <Compile Include="Taggers\StyleHelper.cs" />
     <Compile Include="ToolWindows\ToolWindowsForm.cs">
       <SubType>Form</SubType>
