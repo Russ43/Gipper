@@ -12,7 +12,8 @@ using Microsoft.VisualStudio.Utilities;
 namespace Gipper
 {
 	[Export(typeof(IClassifierProvider))]
-	[ContentType("CSharp")]
+	// let's use a tagger for C#
+	//[ContentType("CSharp")]
 	[ContentType("TypeScript")]
 	[ContentType("C")]
 	[ContentType("JavaScript")]
