@@ -256,6 +256,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PkgCmdID.cs" />
     <Compile Include="SymbolsNavigator\SymbolsNavigator.cs" />
+    <Compile Include="Taggers\ClassificationHelper.cs" />
+    <Compile Include="Taggers\ClassifiedSpanInfo.cs" />
+    <Compile Include="Taggers\ClassifierContext.cs" />
+    <Compile Include="Taggers\FormatDefinitions\CommentCfd.cs" />
+    <Compile Include="Taggers\FormatDefinitions\LiteralCfd.cs" />
+    <Compile Include="Taggers\FormatDefinitions\MemberDefinitionCfd.cs" />
+    <Compile Include="Taggers\FormatDefinitions\NamespaceDefinitionCfd.cs" />
+    <Compile Include="Taggers\FormatDefinitions\ParenDefinitionCfd.cs" />
+    <Compile Include="Taggers\FormatDefinitions\TypeDefinitionCfd.cs" />
+    <Compile Include="Taggers\GipperTagger.cs" />
+    <Compile Include="Taggers\GipperTaggerBase.cs" />
+    <Compile Include="Taggers\GipperTaggerProvider.cs" />
+    <Compile Include="Taggers\StyleHelper.cs" />
     <Compile Include="ToolWindows\ToolWindowsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,6 +322,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <UseCodebase>true</UseCodebase>
   </PropertyGroup>
