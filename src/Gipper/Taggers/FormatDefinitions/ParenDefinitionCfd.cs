@@ -20,7 +20,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefiniti
 		public ParenDefinitionCfd()
 		{
 			DisplayName = "Paren Definition";
-			FontTypeface = StyleHelper.DefinitionFontFace;
+			FontTypeface = StyleHelper.ParenFontFace;
 			FontRenderingSize = StyleHelper.ParenFontRenderingSizes[0];
 		}
 		#endregion
@@ -48,7 +48,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefiniti
 			public ParenDefinitionCfd_0()
 			{
 				DisplayName = "Paren Definition 0";
-				FontTypeface = StyleHelper.DefinitionFontFace;
+				FontTypeface = StyleHelper.ParenFontFace;
 				FontRenderingSize = StyleHelper.ParenFontRenderingSizes[0];
 			}
 			#endregion
@@ -77,7 +77,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefiniti
 			public ParenDefinitionCfd_1()
 			{
 				DisplayName = "Paren Definition 1";
-				FontTypeface = StyleHelper.DefinitionFontFace;
+				FontTypeface = StyleHelper.ParenFontFace;
 				FontRenderingSize = StyleHelper.ParenFontRenderingSizes[1];
 			}
 			#endregion
@@ -106,7 +106,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefiniti
 			public ParenDefinitionCfd_2()
 			{
 				DisplayName = "Paren Definition 2";
-				FontTypeface = StyleHelper.DefinitionFontFace;
+				FontTypeface = StyleHelper.ParenFontFace;
 				FontRenderingSize = StyleHelper.ParenFontRenderingSizes[2];
 			}
 			#endregion
@@ -135,7 +135,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefiniti
 			public ParenDefinitionCfd_3()
 			{
 				DisplayName = "Paren Definition 3";
-				FontTypeface = StyleHelper.DefinitionFontFace;
+				FontTypeface = StyleHelper.ParenFontFace;
 				FontRenderingSize = StyleHelper.ParenFontRenderingSizes[3];
 			}
 			#endregion
@@ -164,7 +164,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefiniti
 			public ParenDefinitionCfd_4()
 			{
 				DisplayName = "Paren Definition 4";
-				FontTypeface = StyleHelper.DefinitionFontFace;
+				FontTypeface = StyleHelper.ParenFontFace;
 				FontRenderingSize = StyleHelper.ParenFontRenderingSizes[4];
 			}
 			#endregion
@@ -193,7 +193,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefiniti
 			public ParenDefinitionCfd_5()
 			{
 				DisplayName = "Paren Definition 5";
-				FontTypeface = StyleHelper.DefinitionFontFace;
+				FontTypeface = StyleHelper.ParenFontFace;
 				FontRenderingSize = StyleHelper.ParenFontRenderingSizes[5];
 			}
 			#endregion
@@ -222,7 +222,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefiniti
 			public ParenDefinitionCfd_6()
 			{
 				DisplayName = "Paren Definition 6";
-				FontTypeface = StyleHelper.DefinitionFontFace;
+				FontTypeface = StyleHelper.ParenFontFace;
 				FontRenderingSize = StyleHelper.ParenFontRenderingSizes[6];
 			}
 			#endregion
@@ -251,7 +251,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefiniti
 			public ParenDefinitionCfd_7()
 			{
 				DisplayName = "Paren Definition 7";
-				FontTypeface = StyleHelper.DefinitionFontFace;
+				FontTypeface = StyleHelper.ParenFontFace;
 				FontRenderingSize = StyleHelper.ParenFontRenderingSizes[7];
 			}
 			#endregion
@@ -280,7 +280,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefiniti
 			public ParenDefinitionCfd_8()
 			{
 				DisplayName = "Paren Definition 8";
-				FontTypeface = StyleHelper.DefinitionFontFace;
+				FontTypeface = StyleHelper.ParenFontFace;
 				FontRenderingSize = StyleHelper.ParenFontRenderingSizes[8];
 			}
 			#endregion
@@ -309,7 +309,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefiniti
 			public ParenDefinitionCfd_9()
 			{
 				DisplayName = "Paren Definition 9";
-				FontTypeface = StyleHelper.DefinitionFontFace;
+				FontTypeface = StyleHelper.ParenFontFace;
 				FontRenderingSize = StyleHelper.ParenFontRenderingSizes[9];
 			}
 			#endregion
@@ -338,7 +338,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefiniti
 			public ParenDefinitionCfd_10()
 			{
 				DisplayName = "Paren Definition 10";
-				FontTypeface = StyleHelper.DefinitionFontFace;
+				FontTypeface = StyleHelper.ParenFontFace;
 				FontRenderingSize = StyleHelper.ParenFontRenderingSizes[10];
 			}
 			#endregion
@@ -367,7 +367,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefiniti
 			public ParenDefinitionCfd_11()
 			{
 				DisplayName = "Paren Definition 11";
-				FontTypeface = StyleHelper.DefinitionFontFace;
+				FontTypeface = StyleHelper.ParenFontFace;
 				FontRenderingSize = StyleHelper.ParenFontRenderingSizes[11];
 			}
 			#endregion
@@ -396,7 +396,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefiniti
 			public ParenDefinitionCfd_12()
 			{
 				DisplayName = "Paren Definition 12";
-				FontTypeface = StyleHelper.DefinitionFontFace;
+				FontTypeface = StyleHelper.ParenFontFace;
 				FontRenderingSize = StyleHelper.ParenFontRenderingSizes[12];
 			}
 			#endregion
@@ -425,7 +425,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefiniti
 			public ParenDefinitionCfd_13()
 			{
 				DisplayName = "Paren Definition 13";
-				FontTypeface = StyleHelper.DefinitionFontFace;
+				FontTypeface = StyleHelper.ParenFontFace;
 				FontRenderingSize = StyleHelper.ParenFontRenderingSizes[13];
 			}
 			#endregion
@@ -454,7 +454,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefiniti
 			public ParenDefinitionCfd_14()
 			{
 				DisplayName = "Paren Definition 14";
-				FontTypeface = StyleHelper.DefinitionFontFace;
+				FontTypeface = StyleHelper.ParenFontFace;
 				FontRenderingSize = StyleHelper.ParenFontRenderingSizes[14];
 			}
 			#endregion
@@ -483,7 +483,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefiniti
 			public ParenDefinitionCfd_15()
 			{
 				DisplayName = "Paren Definition 15";
-				FontTypeface = StyleHelper.DefinitionFontFace;
+				FontTypeface = StyleHelper.ParenFontFace;
 				FontRenderingSize = StyleHelper.ParenFontRenderingSizes[15];
 			}
 			#endregion
