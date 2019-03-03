@@ -36,13 +36,20 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 			bool isTypeDeclaration = false;
 			if(symbol != null && symbol.Kind == SymbolKind.NamedType)
 			{
-				if(classifierContext.Info.ClassifiedSpan.ClassificationType == "class name")
+				if(node is ClassDeclarationSyntax
+					|| node is StructDeclarationSyntax
+					|| node is InterfaceDeclarationSyntax
+					|| node is EnumDeclarationSyntax
+					|| node is DelegateDeclarationSyntax
+				)
 				{
-					if(node is ClassDeclarationSyntax
-						|| node is StructDeclarationSyntax
-						|| node is InterfaceDeclarationSyntax
-						|| node is EnumDeclarationSyntax
-						|| node is DelegateDeclarationSyntax)
+					string classificationType = classifierContext.Info.ClassifiedSpan.ClassificationType;
+					if(classificationType == "class name"
+						|| classificationType == "struct name"
+						|| classificationType == "interface name"
+						|| classificationType == "enum name"
+						|| classificationType == "delegate name"
+					)
 					{
 						isTypeDeclaration = true;
 					}
@@ -60,19 +67,28 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 			Debug.Assert(node != null);
 
 			bool isMemberDeclaration = false;
-			if(classifierContext.Info.ClassifiedSpan.ClassificationType == "identifier")
+			if(symbol != null)
 			{
-				if(symbol != null)
+				if(symbol.Kind == SymbolKind.Event
+					|| symbol.Kind == SymbolKind.Field
+					|| symbol.Kind == SymbolKind.Method
+					|| symbol.Kind == SymbolKind.Property)
 				{
-					if(symbol.Kind == SymbolKind.Event
-						|| symbol.Kind == SymbolKind.Field
-						|| symbol.Kind == SymbolKind.Method
-						|| symbol.Kind == SymbolKind.Property)
+					if(node is VariableDeclaratorSyntax
+						|| node is FieldDeclarationSyntax
+						|| node is EnumMemberDeclarationSyntax
+						|| node is ConstructorDeclarationSyntax
+						|| node is PropertyDeclarationSyntax
+						|| node is IndexerDeclarationSyntax
+						|| node is MethodDeclarationSyntax
+					)
 					{
-						if(node is VariableDeclaratorSyntax
-							|| node is ConstructorDeclarationSyntax
-							|| node is MethodDeclarationSyntax
-							|| node is PropertyDeclarationSyntax)
+						string classificationType = classifierContext.Info.ClassifiedSpan.ClassificationType;
+						if(classificationType == "field name"
+							|| classificationType == "enum member name"
+							|| classificationType == "property name"
+							|| classificationType == "method name"
+						)
 						{
 							if(classifierContext.PreviousInfo?.ClassifiedSpan.ClassificationType != "xml doc comment - attribute quotes")   // ignore XML doc cref indentifiers
 								isMemberDeclaration = true;
