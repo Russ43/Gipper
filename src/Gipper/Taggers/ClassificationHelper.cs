@@ -75,6 +75,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 					|| symbol.Kind == SymbolKind.Property)
 				{
 					if(node is VariableDeclaratorSyntax
+						|| node is EventDeclarationSyntax
 						|| node is FieldDeclarationSyntax
 						|| node is EnumMemberDeclarationSyntax
 						|| node is ConstructorDeclarationSyntax
@@ -84,7 +85,9 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 					)
 					{
 						string classificationType = classifierContext.Info.ClassifiedSpan.ClassificationType;
-						if(classificationType == "field name"
+						if(classificationType == "constant name"
+							|| classificationType == "event name"
+							|| classificationType == "field name"
 							|| classificationType == "enum member name"
 							|| classificationType == "property name"
 							|| classificationType == "method name"
