@@ -52,6 +52,11 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 					)
 					{
 						isTypeDeclaration = true;
+
+						// annoyingly, class references inside XML documentation comments (eg: <see cref="object">) 
+						// will pass all the tests up to this point
+						if(classifierContext.PreviousInfo.ClassifiedSpan.ClassificationType.StartsWith("xml doc comment"))
+							isTypeDeclaration = false;
 					}
 				}
 			}
