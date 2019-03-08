@@ -13,7 +13,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 		public static readonly Typeface DefinitionFontFace = new Typeface("Segoe UI Black");
 		public static readonly Typeface CommentFontFace = new Typeface("Short Stack");
 		public const double CommentFontRenderingSize = 13;
-		public static readonly Typeface LiteralFontFace = new Typeface("Courier Prime");
+		public static readonly Typeface LiteralFontFace = new Typeface("Consolas");
 		public const double NamespaceFontRenderingSize = 30;
 		public static readonly Typeface ParenFontFace = new Typeface("Arial Narrow");
 		public static readonly double[] ParenFontRenderingSizes = new double[]
