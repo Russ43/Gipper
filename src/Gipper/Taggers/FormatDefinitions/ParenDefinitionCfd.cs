@@ -99,7 +99,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier.ClassificationFormatDefiniti
 		internal class ParenDefinitionCfd_2 : ClassificationFormatDefinition
 		{
 			#region constants
-			public const string Name = "Gipper.Cfd.ParenDefinition_1";
+			public const string Name = "Gipper.Cfd.ParenDefinition_2";
 			#endregion region
 
 			#region constructors
