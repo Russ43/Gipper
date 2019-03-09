@@ -20,7 +20,10 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 			if(symbol != null && symbol.Kind == SymbolKind.Namespace)
 			{
 				if(node.Ancestors().Any(sn => sn is NamespaceDeclarationSyntax))
-					isNamepsaceDeclaration = true;
+				{
+					if(!(node.Parent is MemberAccessExpressionSyntax))
+						isNamepsaceDeclaration = true;
+				}
 			}
 
 			return isNamepsaceDeclaration;
