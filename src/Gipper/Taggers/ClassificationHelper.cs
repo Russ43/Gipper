@@ -16,17 +16,23 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 
 			Debug.Assert(node != null);
 
-			bool isNamepsaceDeclaration = false;
-			if(symbol != null && symbol.Kind == SymbolKind.Namespace)
-			{
-				if(node.Ancestors().Any(sn => sn is NamespaceDeclarationSyntax))
-				{
-					if(!(node.Parent is MemberAccessExpressionSyntax))
-						isNamepsaceDeclaration = true;
-				}
-			}
+			// it's not a namespace declaration unless the symbol kind is namespace
+			if(!(symbol != null && symbol.Kind == SymbolKind.Namespace))
+				return false;
 
-			return isNamepsaceDeclaration;
+			// it's not a namespace declaration if it's inside a type declaration (eg: a fully qualified type like System.Int32)
+			if(node.Ancestors().Any(sn => sn is TypeDeclarationSyntax))
+				return false;
+
+			// it's not a namespace declaration unless it's inside a namespace declaration
+			if(!(node.Ancestors().Any(sn => sn is NamespaceDeclarationSyntax)))
+				return false;
+
+			// technically the dots are part of the namespace declaration, but they look silly in big fonts
+			if(classifierContext.Info.ClassifiedSpan.ClassificationType == "operator")
+				return false;
+
+			return true;
 		}
 
 		public static bool IsTypeDeclaration(ClassifierContext classifierContext)
