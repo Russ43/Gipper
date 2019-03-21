@@ -105,7 +105,7 @@ namespace Gipper._2015.Classifiers.GipperClassifier
 							|| classificationType == "enum member name"
 							|| classificationType == "property name"
 							|| classificationType == "method name"
-							|| classificationType == "keyword"	// for indexers
+							|| (classificationType == "keyword" && classifierContext.Info.Text == "this")	// for indexers
 						)
 						{
 							if(classifierContext.PreviousInfo?.ClassifiedSpan.ClassificationType != "xml doc comment - attribute quotes")   // ignore XML doc cref indentifiers
